@@ -1,0 +1,7 @@
+D:\program\C#\Learn_Net\Learn_Net_Echo\bin\Debug\Learn_Net_Echo.exe.config
+D:\program\C#\Learn_Net\Learn_Net_Echo\bin\Debug\Learn_Net_Echo.exe
+D:\program\C#\Learn_Net\Learn_Net_Echo\bin\Debug\Learn_Net_Echo.pdb
+D:\program\C#\Learn_Net\Learn_Net_Echo\obj\Debug\Learn_Net_Echo.csproj.AssemblyReference.cache
+D:\program\C#\Learn_Net\Learn_Net_Echo\obj\Debug\Learn_Net_Echo.csproj.CoreCompileInputs.cache
+D:\program\C#\Learn_Net\Learn_Net_Echo\obj\Debug\Learn_Net_Echo.exe
+D:\program\C#\Learn_Net\Learn_Net_Echo\obj\Debug\Learn_Net_Echo.pdb

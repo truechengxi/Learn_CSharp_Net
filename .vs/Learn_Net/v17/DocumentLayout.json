@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\program\\C#\\Learn_Net\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{90D1FF40-3C71-4C66-B1E3-A81D575ADF46}|Learn_Net_Echo\\Learn_Net_Echo.csproj|d:\\program\\c#\\learn_net\\learn_net_echo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90D1FF40-3C71-4C66-B1E3-A81D575ADF46}|Learn_Net_Echo\\Learn_Net_Echo.csproj|solutionrelative:learn_net_echo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\program\\C#\\Learn_Net\\Learn_Net_Echo\\Program.cs",
+              "RelativeDocumentMoniker": "Learn_Net_Echo\\Program.cs",
+              "ToolTip": "D:\\program\\C#\\Learn_Net\\Learn_Net_Echo\\Program.cs",
+              "RelativeToolTip": "Learn_Net_Echo\\Program.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAA2wBMAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T10:41:15.203Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
