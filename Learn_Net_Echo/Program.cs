@@ -1,12 +1,7 @@
-﻿using Microsoft.SqlServer.Server;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Net.Sockets;
-using System.Runtime.Remoting.Channels;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Learn_Net_Echo
 {
@@ -35,19 +30,23 @@ namespace Learn_Net_Echo
 
         static void Main(string[] args)
         {
-            listenfd = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
-            IPAddress iPAddress = IPAddress.Parse("127.0.0.1");
-
-            IPEndPoint iPEndPoint = new IPEndPoint(iPAddress, 8888);
-
-            listenfd.Bind(iPEndPoint);
-
-            listenfd.Listen(0);
-
-            Console.WriteLine("[服务器]启动成功");
-
-            listenfd.BeginAccept(OnAcceptCallBack, listenfd);
+            SyncServer syncServer = new SyncServer();
+            
+            syncServer.StartServer();
+            
+            // listenfd = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            //
+            // IPAddress iPAddress = IPAddress.Parse("127.0.0.1");
+            //
+            // IPEndPoint iPEndPoint = new IPEndPoint(iPAddress, 8888);
+            //
+            // listenfd.Bind(iPEndPoint);
+            //
+            // listenfd.Listen(0);
+            //
+            // Console.WriteLine("[服务器]启动成功");
+            //
+            // listenfd.BeginAccept(OnAcceptCallBack, listenfd);
 
             //while (true)
             //{
