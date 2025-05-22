@@ -5,3 +5,10 @@ D:\program\C#\Learn_Net\Learn_Net_Echo\obj\Debug\Learn_Net_Echo.csproj.AssemblyR
 D:\program\C#\Learn_Net\Learn_Net_Echo\obj\Debug\Learn_Net_Echo.csproj.CoreCompileInputs.cache
 D:\program\C#\Learn_Net\Learn_Net_Echo\obj\Debug\Learn_Net_Echo.exe
 D:\program\C#\Learn_Net\Learn_Net_Echo\obj\Debug\Learn_Net_Echo.pdb
+D:\07_Learn\C#\Learn_CSharp_Net\Learn_Net_Echo\bin\Debug\Learn_Net_Echo.exe.config
+D:\07_Learn\C#\Learn_CSharp_Net\Learn_Net_Echo\bin\Debug\Learn_Net_Echo.exe
+D:\07_Learn\C#\Learn_CSharp_Net\Learn_Net_Echo\bin\Debug\Learn_Net_Echo.pdb
+D:\07_Learn\C#\Learn_CSharp_Net\Learn_Net_Echo\obj\Debug\Learn_Net_Echo.csproj.AssemblyReference.cache
+D:\07_Learn\C#\Learn_CSharp_Net\Learn_Net_Echo\obj\Debug\Learn_Net_Echo.csproj.CoreCompileInputs.cache
+D:\07_Learn\C#\Learn_CSharp_Net\Learn_Net_Echo\obj\Debug\Learn_Net_Echo.exe
+D:\07_Learn\C#\Learn_CSharp_Net\Learn_Net_Echo\obj\Debug\Learn_Net_Echo.pdb
