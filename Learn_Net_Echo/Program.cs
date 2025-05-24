@@ -11,11 +11,11 @@ namespace Learn_Net_Echo
          * 服务器端：
          * 1.创建Socket对象
          * 2.绑定IP和端口
-         * 3.监听
-         * 4.接收连接
-         * 5.接收数据
-         * 6.发送数据
-         * 7.关闭连接
+         * 3.监听 Listen
+         * 4.接收连接 Accept
+         * 5.接收数据 Receive
+         * 6.发送数据 Send
+         * 7.关闭连接 Close
          */
 
         class ClientState
@@ -30,9 +30,13 @@ namespace Learn_Net_Echo
 
         static void Main(string[] args)
         {
-            SyncServer syncServer = new SyncServer();
-            
-            syncServer.StartServer();
+            //同步服务器
+            // SyncServer syncServer = new SyncServer();
+            // syncServer.StartServer();
+
+            //异步服务器
+            AsyncServer asyncServer = new AsyncServer();
+            asyncServer.StartServer();
             
             // listenfd = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             //
