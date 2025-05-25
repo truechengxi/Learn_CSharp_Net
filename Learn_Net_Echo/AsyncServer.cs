@@ -17,14 +17,12 @@ namespace Learn_Net_Echo
             public byte[] Buffer = new byte[1024];
         }
         private Socket socket;
-
         private Dictionary<Socket, ClientStage> clients = new Dictionary<Socket, ClientStage>();
         public void StartServer()
         {
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             BindIpAndPort("127.0.0.1",8888);
         }
-    
         public void BindIpAndPort(string ip, int port )
         {
             IPAddress ipAddress = IPAddress.Parse(ip);
@@ -32,7 +30,7 @@ namespace Learn_Net_Echo
             socket.Bind(ipEndPoint);
             Listen();
         }
-
+        
         public void Listen()
         {
             socket.Listen(10);
@@ -50,11 +48,21 @@ namespace Learn_Net_Echo
             var clientStage = new ClientStage();
             clientStage.ClientSocket = client;
             clients.Add(client, clientStage);
+            OnLineCallBack(clientStage.ClientSocket);
             client.BeginReceive(clientStage.Buffer,0,clientStage.Buffer.Length,SocketFlags.None, ReceiveCallBack, clientStage);
             //再次启动Accept
             server.BeginAccept(AcceptCallBack, server);
         }
 
+        private void OnLineCallBack(Socket client)
+        {
+            BroadCast(EncodeMessage(false, clients.Count.ToString()));
+        }
+
+        private void OffLineCallBack(Socket client)
+        {
+            BroadCast(EncodeMessage(false, clients.Count.ToString()));
+        }
         private void ReceiveCallBack(IAsyncResult ar)
         {
             var clientStage = (ClientStage)ar.AsyncState;
@@ -63,39 +71,65 @@ namespace Learn_Net_Echo
             if (count > 0)
             {
                 var str = Encoding.UTF8.GetString(clientStage.Buffer, 0, count);
+                str = str.Substring(0,str.Length-1);
                 Console.WriteLine($"{client.RemoteEndPoint} : {str}");
                 var returnStr = $"{client.RemoteEndPoint} : {str}";
-                client.Send(EncodeMessage(returnStr));
+                BroadCast(EncodeMessage(true, returnStr));
+                BroadCast(EncodeMessage(false, clients.Count.ToString()));
                 // SendMessage(client,str);
                 client.BeginReceive(clientStage.Buffer, 0, clientStage.Buffer.Length,SocketFlags.None, ReceiveCallBack, clientStage);
             }
             else if(count == 0)
             {
-                client.Close(); 
                 clients.Remove(client);
+                OffLineCallBack(client);
+                client.Close(); 
                 Console.WriteLine("Client socket closed");
                 return;
             }
         }
-
-        private void SendMessage(Socket socket, string message)
-        {
-            var data = Encoding.UTF8.GetBytes(message);
-        }
         
-        private byte[] EncodeMessage(string message)
+        private byte[] EncodeMessage(bool isUser, string message)
         {
-            byte[] msg = Encoding.UTF8.GetBytes(message);
-            short len = (short)msg.Length; 
+            string sendMsg;
+            if (isUser)
+            {
+                sendMsg = "[USER]" + message;
+            }
+            else
+            {
+                sendMsg = "[SYSTEM]" + message;
+            }
+
+            byte[] msgByte = Encoding.UTF8.GetBytes(sendMsg);
+            short len = (short)msgByte.Length; 
             using(var ms = new MemoryStream())
             using (var bw = new BinaryWriter(ms))
             {
                 // 写入消息长度（2字节，大端序）
                 bw.Write(BitConverter.GetBytes(System.Net.IPAddress.HostToNetworkOrder(len)));
                 // 写入消息内容
-                bw.Write(msg);
+                bw.Write(msgByte);
                 return ms.ToArray();
             }
+        }
+
+
+        private void BroadCast(byte[] data)
+        {
+            foreach (var client in clients)
+            {
+                try
+                {
+                    client.Value.ClientSocket.Send(data);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+            }
+            
         }
     }
 }
