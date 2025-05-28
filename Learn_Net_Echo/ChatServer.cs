@@ -121,6 +121,10 @@ namespace Learn_Net_Echo
         }
 
 
+        /// <summary>
+        /// 广播给所有在线的用户
+        /// </summary>
+        /// <param name="data"></param>
         private void BroadCast(byte[] data)
         {
             foreach (var client in clients)

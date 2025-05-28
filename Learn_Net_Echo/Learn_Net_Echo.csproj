@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="AsyncServer.cs" />
     <Compile Include="ChatServer.cs" />
-    <Compile Include="DaLuanDouServer.cs" />
+    <Compile Include="DaLuanDou\DaLuanDouServer.cs" />
+    <Compile Include="DaLuanDou\EventHandler.cs" />
+    <Compile Include="DaLuanDou\MsgHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyncServer.cs" />
